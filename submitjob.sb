@@ -1,0 +1,44 @@
+#!/bin/bash --login
+# Job name:
+#SBATCH --job-name=AIOT
+
+# Number of processes.
+# Unless programmed using MPI,
+# most programs using GPU-offloading only need
+# a single CPU-based process to manage the device(s)
+#SBATCH --ntasks=1
+
+# Type and number of GPUs
+# The type is optional.
+#SBATCH --gpus=v100:4
+
+# Total CPU memory
+# All available memory per GPU is allocated by default.
+# Specify "M" or "G" for MB and GB respectively
+#SBATCH --mem=32G
+
+# Wall time
+# Format: "minutes", "hours:minutes:seconds", 
+# "days-hours", or "days-hours:minutes"
+#SBATCH --time=01:00:00
+
+# Mail type
+# e.g., which events trigger email notifications
+#SBATCH --mail-type=ALL
+
+# Mail address
+#SBATCH --mail-user=lagwanka@msu.edu
+
+# Standard output and error to file
+# %x: job name, %j: job ID
+#SBATCH --output=%x-%j.SLURM.out
+
+source /mnt/ufs18/home-225/lagwanka/aiot/bin/activate
+
+# Run our job
+cd /mnt/ufs18/home-225/lagwanka/AIOT-NELora/neural_enhanced_demodulation/pytorch
+srun python main.py --dir_comment sf7_v1 --batch_size 16 --root_path . --data_dir ../matlab/data/LoRasf7_125k/sf7_125k --groundtruth_code 35 --normalization --train_iter 100000 --ratio_bt_train_and_test 0.8 --network end2end
+
+# Print resource information
+control show job $SLURM_JOB_ID
+js -j $SLURM_JOB_ID
