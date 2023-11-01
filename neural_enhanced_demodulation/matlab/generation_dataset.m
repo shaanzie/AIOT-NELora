@@ -10,8 +10,8 @@ close all;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Set your onw paths
-raw_data_dir='raw_sf7_cross_instance';
-generated_data_dir = '/data/Lora/';
+raw_data_dir='D:\Code\CSE891-AIOT\Project 1\AIOT-NELora\neural_enhanced_demodulation\matlab\raw_sf7_cross_instance\';
+generated_data_dir = 'D:\Code\CSE891-AIOT\Project 1\AIOT-NELora\neural_enhanced_demodulation\matlab\data\LoRa';
 
 % load settings
 Fs = param_configs(3);         % sample rate
@@ -24,7 +24,7 @@ raw_data_list=scan_dir(raw_data_dir);
 n_raw_data_list=length(raw_data_list);
 
 
-feature_dir = [generated_data_dir,'sf7_125k/'];
+feature_dir = [generated_data_dir,'sf7_125k\'];
 if ~exist(feature_dir,'dir')
     mkdir(feature_dir);
 end

@@ -197,10 +197,10 @@ def training_loop(training_dataloader_X, training_dataloader_Y, testing_dataload
 
     # Get some fixed data from domains X and Y for sampling. These are images that are held
     # constant throughout training, that allow us to inspect the model's performance.
-    fixed_X, name_X_fixed = test_iter_X.next()
+    fixed_X, name_X_fixed = next(iter(test_iter_X))
     fixed_X = to_var(fixed_X)
 
-    fixed_Y, name_Y_fixed = test_iter_Y.next()
+    fixed_Y, name_Y_fixed = next(iter(test_iter_Y))
     fixed_Y = to_var(fixed_Y)
     # print("Fixed_X {}".format(fixed_X.shape))
     fixed_X_spectrum_raw = torch.stft(input=fixed_X, n_fft=opts.stft_nfft, hop_length=opts.stft_overlap,
@@ -219,12 +219,12 @@ def training_loop(training_dataloader_X, training_dataloader_Y, testing_dataload
             iter_X = iter(training_dataloader_X)
             iter_Y = iter(training_dataloader_Y)
 
-        images_X, name_X = iter_X.next()
+        images_X, name_X = next(iter(iter_X))
         labels_X_mapping = list(
             map(lambda x: int(x.split('_')[5]), name_X))
         images_X, labels_X = to_var(images_X), to_var(
             torch.tensor(labels_X_mapping))
-        images_Y, name_Y = iter_Y.next()
+        images_Y, name_Y = next(iter(iter_Y))
         labels_Y_mapping = list(
             map(lambda x: int(x.split('_')[5]), name_Y))
         images_Y, labels_Y = to_var(images_Y), to_var(
@@ -290,7 +290,7 @@ def training_loop(training_dataloader_X, training_dataloader_Y, testing_dataload
     # iter_per_epoch_test = 500
     saved_data = {}
     for iteration in range(iter_per_epoch_test):
-        images_X_test, name_X_test = test_iter_X.next()
+        images_X_test, name_X_test = next(iter(test_iter_X))
 
         code_X_test_mapping = list(
             map(lambda x: float(x.split('_')[0]), name_X_test))
@@ -307,7 +307,7 @@ def training_loop(training_dataloader_X, training_dataloader_Y, testing_dataload
         images_X_test, labels_X_test = to_var(images_X_test), to_var(
             torch.tensor(labels_X_test_mapping))
 
-        images_Y_test, labels_Y_test = test_iter_Y.next()
+        images_Y_test, labels_Y_test = next(iter(test_iter_Y))
         images_Y_test = to_var(images_Y_test)
 
         images_X_test_spectrum_raw = torch.stft(input=images_X_test, n_fft=opts.stft_nfft,
