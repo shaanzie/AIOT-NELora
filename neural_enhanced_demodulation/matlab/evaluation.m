@@ -12,11 +12,11 @@ color_list = linspecer(2);
 BW=125000;
 SF=7;
 
-SNR_list=[-25:15];
-nelora_file='evaluation/sf7_v1_';
+SNR_list=-25:15;
+nelora_file='evaluation/sf7_v4_';
 
-SNR_list_baseline=-30:0;
-baseline_file='evaluation/baseline_error_matrix_';
+SNR_list_baseline=-25:15;
+baseline_file='evaluation/sf7_v2_';
 
 name_str=[nelora_file,num2str(SF),'_',num2str(BW),'.mat'];
 error_path = [data_root,name_str];

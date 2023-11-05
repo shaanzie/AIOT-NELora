@@ -113,9 +113,9 @@ def create_parser():
                         help='Choose the root path to rf signals.')
     parser.add_argument('--data_dir',
                         type=str,
-                        default='../matlab/data/LoRasf7_125k/sf7_125k',
+                        default='D:/Code/CSE891-AIOT/Project1/AIOT-NELora/neural_enhanced_demodulation/matlab/data/LoRasf7_125k/sf7_125k',
                         help='Choose the root path to rf signals.',
-                        choices=['../matlab/data/LoRasf7_125k/sf7_125k'])
+                        choices=['D:/Code/CSE891-AIOT/Project1/AIOT-NELora/neural_enhanced_demodulation/matlab/data/LoRasf7_125k/sf7_125k'])
 
     parser.add_argument('--network', type=str, default='end2end', choices=['end2end', 'end2end_fig4', 'end2end_real'])
 
