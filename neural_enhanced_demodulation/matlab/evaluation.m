@@ -13,10 +13,10 @@ BW=125000;
 SF=7;
 
 SNR_list=-25:15;
-nelora_file='evaluation/sf7_v4_';
+nelora_file='evaluation/sf7_v10_';
 
 SNR_list_baseline=-25:15;
-baseline_file='evaluation/sf7_v2_';
+baseline_file='evaluation/sf7_v1_';
 
 name_str=[nelora_file,num2str(SF),'_',num2str(BW),'.mat'];
 error_path = [data_root,name_str];
@@ -34,7 +34,7 @@ error_matrix = a.error_matrix;
 plot(SNR_list_baseline,1-error_matrix,"-.*",'LineWidth',2,'color',color_list(2,:));
 hold on;
 
-legend('abs baseline','phs baseline')
+legend('Our Results','NELora Results')
 
 % legend('abs_baselineNELoRa','Baseline')
 xlabel('SNR (dB)'); % x label

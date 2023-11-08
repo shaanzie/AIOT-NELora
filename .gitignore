@@ -8,6 +8,5 @@ neural_enhanced_demodulation/pytorch/__pycache__
 neural_enhanced_demodulation/pytorch/models/__pycache__
 neural_enhanced_demodulation/pytorch/datasets/__pycache__
 neural_enhanced_demodulation/pytorch/evaluations
-neural_enhanced_demodulation/matlab/evaluation
 *.pyc
 *.out

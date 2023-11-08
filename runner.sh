@@ -1,1 +1,1 @@
-python main.py --dir_comment sf7_v1 --batch_size 16 --root_path . --data_dir D:/Code/CSE891-AIOT/Project1/AIOT-NELora/neural_enhanced_demodulation/matlab/data/LoRasf7_125k/sf7_125k --groundtruth_code 35 --normalization --train_iter 100000 --ratio_bt_train_and_test 0.8 --network end2end
+python main.py --dir_comment sf7_v11 --batch_size 16 --root_path . --data_dir D:/Code/CSE891-AIOT/Project1/AIOT-NELora/neural_enhanced_demodulation/matlab/data/LoRasf7_125k/sf7_125k --groundtruth_code 35 --normalization --train_iter 10000 --ratio_bt_train_and_test 0.8 --network end2end
