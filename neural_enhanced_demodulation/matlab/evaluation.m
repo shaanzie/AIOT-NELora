@@ -13,7 +13,7 @@ BW=125000;
 SF=7;
 
 SNR_list=-25:15;
-nelora_file='evaluation/sf7_v10_';
+nelora_file='evaluation/sf7_v11_';
 
 SNR_list_baseline=-25:15;
 baseline_file='evaluation/sf7_v1_';
